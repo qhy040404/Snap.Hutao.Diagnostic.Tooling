@@ -1,0 +1,148 @@
+Time: 2023-11-28T04:05:12.6996821Z
+EventData: Application: Snap.Hutao.exe
+CoreCLR Version: 8.0.23.53103
+.NET Version: 8.0.0
+Description: The process was terminated due to an internal error in the .NET Runtime at IP 0x00007FFE1ADF9AA8 (0x00007FFE1AA30000) with exit code 0x80131506.
+
+
+Time: 2023-11-28T04:06:20.3359496Z
+EventData: Application: Snap.Hutao.exe
+CoreCLR Version: 8.0.23.53103
+.NET Version: 8.0.0
+Description: The process was terminated due to an internal error in the .NET Runtime at IP 0x00007FFE1B729AA8 (0x00007FFE1B360000) with exit code 0x80131506.
+
+
+Time: 2023-11-28T04:06:27.9057313Z
+EventData: Application: Snap.Hutao.exe
+CoreCLR Version: 8.0.23.53103
+.NET Version: 8.0.0
+Description: The process was terminated due to an internal error in the .NET Runtime at IP 0x00007FFE1B729AA8 (0x00007FFE1B360000) with exit code 0x80131506.
+
+
+Time: 2023-11-28T04:07:12.8397727Z
+EventData: Application: Snap.Hutao.exe
+CoreCLR Version: 8.0.23.53103
+.NET Version: 8.0.0
+Description: The process was terminated due to an internal error in the .NET Runtime at IP 0x00007FFE1B729AA8 (0x00007FFE1B360000) with exit code 0x80131506.
+
+
+Time: 2023-11-28T04:13:01.0070732Z
+EventData: Application: Snap.Hutao.exe
+CoreCLR Version: 8.0.23.53103
+.NET Version: 8.0.0
+Description: The process was terminated due to an internal error in the .NET Runtime at IP 0x00007FFE06809AA8 (0x00007FFE06440000) with exit code 0x80131506.
+
+
+Time: 2023-11-28T04:13:11.4703673Z
+EventData: Application: Snap.Hutao.exe
+CoreCLR Version: 8.0.23.53103
+.NET Version: 8.0.0
+Description: The process was terminated due to an internal error in the .NET Runtime at IP 0x00007FFE06809AA8 (0x00007FFE06440000) with exit code 0x80131506.
+
+
+Time: 2023-11-28T04:16:59.9747466Z
+EventData: Application: Snap.Hutao.exe
+CoreCLR Version: 8.0.23.53103
+.NET Version: 8.0.0
+Description: The process was terminated due to an unhandled exception.
+Exception Info: System.AccessViolationException: Attempted to read or write protected memory. This is often an indication that other memory is corrupt.
+Stack:
+   at Snap.Discord.GameSDK.ABI.DestroyHandler.Invoke(Snap.Discord.GameSDK.ABI.DiscordMethods*)
+   at Snap.Discord.GameSDK.Discord.Dispose(Boolean)
+   at Snap.Discord.GameSDK.Discord.Dispose()
+   at Snap.Discord.GameSDK.Discord..ctor(Int64, Snap.Discord.GameSDK.CreateFlags)
+   at Snap.Hutao.Service.Discord.DiscordController.ResetManagerOrIgnore(Int64)
+   at Snap.Hutao.Service.Discord.DiscordController+<SetDefaultActivityAsync>d__7.MoveNext()
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[[Snap.Hutao.Service.Discord.DiscordController+<SetDefaultActivityAsync>d__7, Snap.Hutao, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](<SetDefaultActivityAsync>d__7 ByRef)
+   at System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder`1[[Snap.Discord.GameSDK.Result, Snap.Discord.GameSDK, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null]].Start[[Snap.Hutao.Service.Discord.DiscordController+<SetDefaultActivityAsync>d__7, Snap.Hutao, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](<SetDefaultActivityAsync>d__7 ByRef)
+   at Snap.Hutao.Service.Discord.DiscordController.SetDefaultActivityAsync(System.DateTimeOffset)
+   at Snap.Hutao.Service.Discord.DiscordService+<SetNormalActivity>d__2.MoveNext()
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[[Snap.Hutao.Service.Discord.DiscordService+<SetNormalActivity>d__2, Snap.Hutao, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](<SetNormalActivity>d__2 ByRef)
+   at System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder.Start[[Snap.Hutao.Service.Discord.DiscordService+<SetNormalActivity>d__2, Snap.Hutao, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]](<SetNormalActivity>d__2 ByRef)
+   at Snap.Hutao.Service.Discord.DiscordService.SetNormalActivity()
+   at Snap.Hutao.Core.LifeCycle.Activation+<WaitMainWindowAsync>d__19.MoveNext()
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+AsyncStateMachineBox`1[[System.Threading.Tasks.VoidTaskResult, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[Snap.Hutao.Core.LifeCycle.Activation+<WaitMainWindowAsync>d__19, Snap.Hutao, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]].ExecutionContextCallback(System.Object)
+   at System.Threading.ExecutionContext.RunInternal(System.Threading.ExecutionContext, System.Threading.ContextCallback, System.Object)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+AsyncStateMachineBox`1[[System.Threading.Tasks.VoidTaskResult, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[Snap.Hutao.Core.LifeCycle.Activation+<WaitMainWindowAsync>d__19, Snap.Hutao, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]].MoveNext(System.Threading.Thread)
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+AsyncStateMachineBox`1[[System.Threading.Tasks.VoidTaskResult, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[Snap.Hutao.Core.LifeCycle.Activation+<WaitMainWindowAsync>d__19, Snap.Hutao, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]].MoveNext()
+   at Snap.Hutao.Core.Threading.ThreadPoolSwitchOperation.RunAction(System.Object)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+   at System.Threading.PortableThreadPool+WorkerThread.WorkerThreadStart()
+
+
+Time: 2023-11-28T04:19:34.0079733Z
+EventData: Application: Snap.Hutao.exe
+CoreCLR Version: 8.0.23.53103
+.NET Version: 8.0.0
+Description: The process was terminated due to an internal error in the .NET Runtime at IP 0x00007FFDC1D19AA8 (0x00007FFDC1950000) with exit code 0x80131506.
+
+
+Time: 2023-11-28T04:20:34.6792700Z
+EventData: Application: Snap.Hutao.exe
+CoreCLR Version: 8.0.23.53103
+.NET Version: 8.0.0
+Description: The process was terminated due to an internal error in the .NET Runtime at IP 0x00007FFDC1D19AA8 (0x00007FFDC1950000) with exit code 0x80131506.
+
+
+Time: 2023-11-28T04:25:02.7271547Z
+EventData: Application: Snap.Hutao.exe
+CoreCLR Version: 8.0.23.53103
+.NET Version: 8.0.0
+Description: The process was terminated due to an internal error in the .NET Runtime at IP 0x00007FFE06809AA8 (0x00007FFE06440000) with exit code 0x80131506.
+
+
+Time: 2023-11-28T04:36:28.8255736Z
+EventData: Application: Snap.Hutao.exe
+CoreCLR Version: 8.0.23.53103
+.NET Version: 8.0.0
+Description: The process was terminated due to an internal error in the .NET Runtime at IP 0x00007FFE19809AA8 (0x00007FFE19440000) with exit code 0x80131506.
+
+
+Time: 2023-11-28T05:10:21.6960052Z
+EventData: Application: Snap.Hutao.exe
+CoreCLR Version: 8.0.23.53103
+.NET Version: 8.0.0
+Description: The process was terminated due to an unhandled exception.
+Exception Info: System.DllNotFoundException: Unable to load DLL 'Microsoft.ui.xaml.dll' or one of its dependencies: 找不到指定的模块。 (0x8007007E)
+   at Snap.Hutao.Program.XamlCheckProcessRequirements()
+   at Snap.Hutao.Program.Main(String[] args) in J:\VSRepos\Snap.Hutao\src\Snap.Hutao\Snap.Hutao\Program.cs:line 30
+
+
+Time: 2023-11-28T05:10:33.9022560Z
+EventData: Application: Snap.Hutao.exe
+CoreCLR Version: 8.0.23.53103
+.NET Version: 8.0.0
+Description: The process was terminated due to an unhandled exception.
+Exception Info: System.DllNotFoundException: Unable to load DLL 'Microsoft.ui.xaml.dll' or one of its dependencies: 找不到指定的模块。 (0x8007007E)
+   at Snap.Hutao.Program.XamlCheckProcessRequirements()
+   at Snap.Hutao.Program.Main(String[] args) in J:\VSRepos\Snap.Hutao\src\Snap.Hutao\Snap.Hutao\Program.cs:line 30
+
+
+Time: 2023-11-28T05:10:49.4509108Z
+EventData: Application: Snap.Hutao.exe
+CoreCLR Version: 8.0.23.53103
+.NET Version: 8.0.0
+Description: The process was terminated due to an internal error in the .NET Runtime at IP 0x00007FF8C5819AA8 (0x00007FF8C5450000) with exit code 0x80131506.
+
+
+Time: 2023-11-28T05:10:57.1874218Z
+EventData: Application: Snap.Hutao.exe
+CoreCLR Version: 8.0.23.53103
+.NET Version: 8.0.0
+Description: The process was terminated due to an internal error in the .NET Runtime at IP 0x00007FF8C5819AA8 (0x00007FF8C5450000) with exit code 0x80131506.
+
+
+Time: 2023-11-28T05:28:43.8663632Z
+EventData: Application: Snap.Hutao.exe
+CoreCLR Version: 8.0.23.53103
+.NET Version: 8.0.0
+Description: The process was terminated due to an internal error in the .NET Runtime at IP 0x00007FF977A69AA8 (0x00007FF9776A0000) with exit code 0x80131506.
+
+
+Time: 2023-11-28T05:35:42.3016011Z
+EventData: Application: Snap.Hutao.exe
+CoreCLR Version: 8.0.23.53103
+.NET Version: 8.0.0
+Description: The process was terminated due to an internal error in the .NET Runtime at IP 0x00007FF947AB9AA8 (0x00007FF9476F0000) with exit code 0x80131506.
+
+

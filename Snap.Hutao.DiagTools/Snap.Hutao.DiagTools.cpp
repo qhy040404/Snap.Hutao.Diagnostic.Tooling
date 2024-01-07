@@ -7,6 +7,8 @@ int main()
 	wprintf(L"Copyright (c) DGP Studio. All rights reserved.\n");
 	wprintf(L"\n");
 
+	InitializeOutputFile();
+
 	wprintf(L"Calculating Unique ID...\n\n");
 	GetHutaoUniqueID();
 

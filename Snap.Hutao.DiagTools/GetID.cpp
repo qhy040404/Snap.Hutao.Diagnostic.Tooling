@@ -38,6 +38,7 @@ void GetHutaoUniqueID()
 	std::string ret = MD5(orig).toStr();
 	std::transform(ret.begin(), ret.end(), ret.begin(), ::toupper);
 
+	AppendToOutputFile("Your machine id: " + ret + "\n\n");
 	wprintf(L"Your machine id: %hs\n\n", ret.c_str());
 }
 

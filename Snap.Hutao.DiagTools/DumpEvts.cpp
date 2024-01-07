@@ -24,10 +24,9 @@ void DumpHutaoDotNetEvents()
 
 	if (ERROR_SUCCESS == PrintQueryStatuses(hResults))
 	{
-		InitializeFile();
 		PrintResults(hResults);
 
-		wprintf(L"Events has been saved to %hs\n\n", GetFileName().c_str());
+		wprintf(L"Events has been saved to %hs\n\n", GetOutputFileName().c_str());
 	}
 
 cleanup:
@@ -178,7 +177,7 @@ DWORD PrintEvent(EVT_HANDLE hEvent)
 		}
 	}
 
-	SaveRenderedEventToFile(pRenderedContent);
+	AppendToOutputFile(RenderEvent(pRenderedContent));
 
 cleanup:
 
@@ -188,26 +187,8 @@ cleanup:
 	return status;
 }
 
-std::string GetFileName()
+std::string RenderEvent(LPWSTR event)
 {
-	char AppPath[MAX_PATH] = { 0 };
-	GetCurrentDirectoryA(MAX_PATH, AppPath);
-	std::string outPath = AppPath;
-	outPath += "\\Snap.Hutao Error Log.txt";
-	return outPath;
-}
-
-void InitializeFile()
-{
-	std::ofstream fs;
-	fs.open(GetFileName().c_str());
-	fs.close();
-}
-
-void SaveRenderedEventToFile(LPWSTR event)
-{
-	std::ofstream fs;
-	fs.open(GetFileName().c_str(), std::ios::app);
 	std::string rendered = WCharToString(event);
 	try
 	{
@@ -221,19 +202,14 @@ void SaveRenderedEventToFile(LPWSTR event)
 
 		if (data.find("Snap.Hutao") == std::string::npos)
 		{
-			goto cleanup;
+			return "";
 		}
 
-		std::string content = "Time: " + time + "\nEventData: " + data + "\n\n";
-
-		fs << content;
+		return "Time: " + time + "\nEventData: " + data + "\n\n";
 	}
 	catch (const std::exception& e)
 	{
 		wprintf(L"ERROR reading %hs", e.what());
+		return "";
 	}
-
-cleanup:
-	fs.close();
-	return;
 }

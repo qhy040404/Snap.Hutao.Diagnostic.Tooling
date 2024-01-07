@@ -7,6 +7,7 @@
 #include <fstream>
 #include <atlstr.h>
 
+#include "File.h"
 #include "utils.h"
 
 void DumpHutaoDotNetEvents();
@@ -15,6 +16,4 @@ DWORD PrintQueryStatuses(EVT_HANDLE hResults);
 DWORD GetQueryStatusProperty(EVT_QUERY_PROPERTY_ID Id, EVT_HANDLE hResults, PEVT_VARIANT& pProperty);
 DWORD PrintResults(EVT_HANDLE hResults);
 DWORD PrintEvent(EVT_HANDLE hEvent);
-std::string GetFileName();
-void InitializeFile();
-void SaveRenderedEventToFile(LPWSTR event);
+std::string RenderEvent(LPWSTR event);

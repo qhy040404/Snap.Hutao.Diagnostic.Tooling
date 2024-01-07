@@ -1,3 +1,3 @@
 #include "GlobalInclude.h"
 
-std::string WCharToString(const TCHAR* tChar);
+std::string WCharToString(const WCHAR* wChar);

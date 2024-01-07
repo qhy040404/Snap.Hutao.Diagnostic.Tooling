@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DumpEvts.cpp" />
+    <ClCompile Include="File.cpp" />
     <ClCompile Include="GetID.cpp" />
     <ClCompile Include="GlobalInclude.h" />
     <ClCompile Include="MD5.cpp" />
@@ -136,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DumpEvts.h" />
+    <ClInclude Include="File.h" />
     <ClInclude Include="GetID.h" />
     <ClInclude Include="MD5.h" />
     <ClInclude Include="resource.h" />

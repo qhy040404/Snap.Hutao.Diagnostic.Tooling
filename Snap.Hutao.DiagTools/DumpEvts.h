@@ -10,6 +10,8 @@
 #include "File.h"
 #include "utils.h"
 
+#pragma comment(lib, "wevtapi.lib")
+
 void DumpHutaoDotNetEvents();
 
 DWORD PrintQueryStatuses(EVT_HANDLE hResults);

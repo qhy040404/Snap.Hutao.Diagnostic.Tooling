@@ -1,6 +1,7 @@
 ﻿#include "DumpEvts.h"
 #include "GetID.h"
 #include "SystemInfo.h"
+#include "Internet.h"
 
 int main()
 {
@@ -11,6 +12,7 @@ int main()
 	printf("\n");
 
 	CheckWindowsVersion();
+	PrintPublicIp();
 
 	printf("\n----------\n\n");
 

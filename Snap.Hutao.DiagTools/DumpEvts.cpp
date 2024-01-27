@@ -1,7 +1,5 @@
 #include "DumpEvts.h"
 
-#pragma comment(lib, "wevtapi.lib")
-
 #define ARRAY_SIZE 10
 #define TIMEOUT 1000
 

@@ -133,6 +133,7 @@
     <ClCompile Include="GlobalInclude.h" />
     <ClCompile Include="MD5.cpp" />
     <ClCompile Include="Snap.Hutao.DiagTools.cpp" />
+    <ClCompile Include="SystemInfo.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +142,7 @@
     <ClInclude Include="GetID.h" />
     <ClInclude Include="MD5.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="SystemInfo.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>

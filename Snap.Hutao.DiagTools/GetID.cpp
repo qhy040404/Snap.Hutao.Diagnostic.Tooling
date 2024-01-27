@@ -1,7 +1,5 @@
 #include "GetID.h"
 
-std::string FormatReg(char* value);
-
 void GetHutaoUniqueID()
 {
 	TCHAR username[UNLEN + 1];
@@ -40,29 +38,4 @@ void GetHutaoUniqueID()
 
 	AppendToOutputFile("Your machine id: " + ret + "\n\n");
 	wprintf(L"Your machine id: %hs\n\n", ret.c_str());
-}
-
-std::string FormatReg(char* value)
-{
-	std::string ret;
-	BOOL isEnd = FALSE;
-	for (int i = 0; i < 256; i++)
-	{
-		char currentChar = value[i];
-		if (currentChar == '\0')
-		{
-			if (isEnd)
-			{
-				ret += "\0";
-				break;
-			}
-			isEnd = TRUE;
-		}
-		else
-		{
-			ret += currentChar;
-			isEnd = FALSE;
-		}
-	}
-	return ret;
 }

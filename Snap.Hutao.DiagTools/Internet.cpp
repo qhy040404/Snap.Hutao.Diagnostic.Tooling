@@ -1,8 +1,6 @@
 #include "Internet.h"
 
-HINTERNET hSession = NULL,
-hConnect = NULL,
-hRequest = NULL;
+HINTERNET hSession = NULL, hConnect = NULL, hRequest = NULL;
 BOOL bResult = FALSE;
 
 static void __cleanup()
@@ -45,6 +43,9 @@ void PrintPublicIp()
 			if (!WinHttpQueryDataAvailable(hRequest, &dwSize))
 				printf("Error %u in WinHttpQueryDataAvailable.\n", GetLastError());
 
+			if (dwSize == 0)
+				break;
+
 			pszOutBuffer = new char[dwSize + 1];
 			if (!pszOutBuffer)
 			{
@@ -59,23 +60,17 @@ void PrintPublicIp()
 					printf("Error %u in WinHttpReadData.\n", GetLastError());
 				else
 				{
-					try
-					{
-						std::istringstream iss(pszOutBuffer);
+					std::istringstream iss(pszOutBuffer);
 
-						boost::property_tree::ptree pt;
-						boost::property_tree::read_json(iss, pt);
+					boost::property_tree::ptree pt;
+					boost::property_tree::read_json(iss, pt);
 
-						std::string ip = pt.get<std::string>("data.ip");
+					std::string ip = pt.get<std::string>("data.ip");
 
-						std::string result = "Public IP: " + ip + "\n";
+					std::string result = "Public IP: " + ip + "\n";
 
-						AppendToOutputFile(result);
-						printf(result.c_str());
-					}
-					catch (const std::exception&)
-					{
-					}
+					AppendToOutputFile(result);
+					printf(result.c_str());
 				}
 
 				delete[] pszOutBuffer;
@@ -84,9 +79,4 @@ void PrintPublicIp()
 	}
 
 	__cleanup();
-}
-
-void CheckHutaoEndpoints()
-{
-
 }

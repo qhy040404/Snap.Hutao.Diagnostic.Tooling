@@ -3,7 +3,7 @@
 #include <atlbase.h>
 #include <sstream>
 
-#include "utils.h"
 #include "file.h"
+#include "utils.h"
 
 void CheckWindowsVersion();

@@ -1,11 +1,11 @@
 #include "GlobalInclude.h"
 
-#include <sddl.h>
-#include <winevt.h>
+#include <atlstr.h>
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
 #include <fstream>
-#include <atlstr.h>
+#include <sddl.h>
+#include <winevt.h>
 
 #include "File.h"
 #include "utils.h"

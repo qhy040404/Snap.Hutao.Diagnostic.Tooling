@@ -1,14 +1,13 @@
 #include "DumpEvts.h"
 
-#define ARRAY_SIZE 10
-#define TIMEOUT 1000
+constexpr auto ARRAY_SIZE = 10;
 
-#define QUERY \
-    L"<QueryList>" \
-    L"  <Query Path='Application'>" \
-    L"    <Select Path='Application'>*[System[Provider[@Name='.NET Runtime']]]</Select>" \
-    L"  </Query>" \
-    L"</QueryList>"
+constexpr auto QUERY = 
+L"<QueryList>"     
+L"  <Query Path='Application'>"     
+L"    <Select Path='Application'>*[System[Provider[@Name='.NET Runtime']]]</Select>"     
+L"  </Query>"     
+L"</QueryList>";
 
 void DumpHutaoDotNetEvents()
 {

@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Snap.Hutao.DiagTools.cpp">
+    <ClCompile Include="Snap.Hutao.Diagnostic.Tooling.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="DumpEvts.cpp">
@@ -70,7 +70,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Snap.Hutao.DiagTools.rc">
+    <ResourceCompile Include="Snap.Hutao.Diagnostic.Tooling.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
   </ItemGroup>

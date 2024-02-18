@@ -7,7 +7,7 @@ int main()
 {
 	InitializeOutputFile();
 
-	wprintf(L"Snap Hutao Diagnosis Tools\n");
+	wprintf(L"Snap Hutao Diagnosis Tooling\n");
 	wprintf(L"Copyright (c) 2024 DGP Studio. All rights reserved.\n");
 	printf("\n");
 

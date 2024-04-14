@@ -21,7 +21,13 @@ void DumpHutaoDotNetEvents()
 
 	if (ERROR_SUCCESS == PrintQueryStatuses(hResults))
 	{
-		PrintResults(hResults);
+		std::vector<std::string> results;
+		PrintResults(hResults, &results);
+
+		for (auto event = results.rbegin(); event != results.rend(); ++event)
+		{
+			AppendToOutputFile(*event);
+		}
 
 		wprintf(L"Events has been saved to %hs\n\n", GetOutputFileName().c_str());
 	}
@@ -98,7 +104,7 @@ cleanup:
 	return status;
 }
 
-DWORD PrintResults(EVT_HANDLE hResults)
+DWORD PrintResults(EVT_HANDLE hResults, std::vector<std::string>* resultsPtr)
 {
 	DWORD status = ERROR_SUCCESS;
 	EVT_HANDLE hEvents[ARRAY_SIZE];
@@ -118,8 +124,10 @@ DWORD PrintResults(EVT_HANDLE hResults)
 
 		for (DWORD i = 0; i < dwReturned; i++)
 		{
-			if (ERROR_SUCCESS == (status = PrintEvent(hEvents[i])))
+			std::string result;
+			if (ERROR_SUCCESS == (status = PrintEvent(hEvents[i], &result)))
 			{
+				resultsPtr->push_back(result);
 				EvtClose(hEvents[i]);
 				hEvents[i] = NULL;
 			}
@@ -141,7 +149,7 @@ cleanup:
 	return status;
 }
 
-DWORD PrintEvent(EVT_HANDLE hEvent)
+DWORD PrintEvent(EVT_HANDLE hEvent, std::string* resultPtr)
 {
 	DWORD status = ERROR_SUCCESS;
 	DWORD dwBufferSize = 0;
@@ -174,7 +182,7 @@ DWORD PrintEvent(EVT_HANDLE hEvent)
 		}
 	}
 
-	AppendToOutputFile(RenderEvent(pRenderedContent));
+	*resultPtr = RenderEvent(pRenderedContent);
 
 cleanup:
 

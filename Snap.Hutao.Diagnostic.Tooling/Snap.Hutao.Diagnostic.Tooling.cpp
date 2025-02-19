@@ -8,7 +8,7 @@ int main()
 	InitializeOutputFile();
 
 	wprintf(L"Snap Hutao Diagnostic Tooling\n");
-	wprintf(L"Copyright (c) 2024 DGP Studio. All rights reserved.\n");
+	wprintf(L"Copyright (c) 2025 DGP Studio. All rights reserved.\n");
 	printf("\n");
 
 	CheckWindowsVersion();

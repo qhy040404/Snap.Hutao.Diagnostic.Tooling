@@ -20,7 +20,7 @@ int main()
 	GetHutaoUniqueID();
 
 	wprintf(L"Dumping .NET Runtime Events...\n\n");
-	DumpHutaoDotNetEvents();
+	DumpHutaoEvents();
 
 	system("pause");
 }

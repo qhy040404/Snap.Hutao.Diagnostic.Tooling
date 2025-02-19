@@ -2,14 +2,18 @@
 
 constexpr auto ARRAY_SIZE = 10;
 
-constexpr auto QUERY = 
+constexpr auto QUERY =
 L"<QueryList>"     
 L"  <Query Path='Application'>"     
-L"    <Select Path='Application'>*[System[Provider[@Name='.NET Runtime']]]</Select>"     
+L"    <Select Path='Application'>*[System[Provider[@Name='.NET Runtime' or @Name='Application Error'] and TimeCreated[timediff(@SystemTime) &lt;= 604800000]]]</Select>"
 L"  </Query>"     
 L"</QueryList>";
 
-void DumpHutaoDotNetEvents()
+constexpr auto APP_NAME = "Snap.Hutao.exe";
+
+const auto REQUIRED_APP_ERROR_DATAS = std::vector<std::string> { "ModuleName", "ExceptionCode", "FaultingOffset" };
+
+void DumpHutaoEvents()
 {
 	EVT_HANDLE hResults = NULL;
 
@@ -202,15 +206,47 @@ std::string RenderEvent(LPWSTR event)
 		boost::property_tree::ptree pt;
 		boost::property_tree::read_xml(iss, pt);
 
+		std::string provider = pt.get<std::string>("Event.System.Provider.<xmlattr>.Name");
 		std::string time = pt.get<std::string>("Event.System.TimeCreated.<xmlattr>.SystemTime");
-		std::string data = pt.get<std::string>("Event.EventData.Data");
 
-		if (data.find("Snap.Hutao") == std::string::npos)
+		if (provider == ".NET Runtime")
 		{
-			return "";
+			std::string data = pt.get<std::string>("Event.EventData.Data");
+
+			if (data.find(APP_NAME) == std::string::npos)
+			{
+				return "";
+			}
+
+			return "Time: " + time + "\nType: .NET Runtime\n" + data + "\n\n";
 		}
 
-		return "Time: " + time + "\nEventData: " + data + "\n\n";
+		if (provider == "Application Error")
+		{
+			// First node must be the app name
+			std::string AppName = pt.get<std::string>("Event.EventData.Data");
+			if (AppName.find(APP_NAME) == std::string::npos)
+			{
+				return "";
+			}
+
+			std::ostringstream os;
+
+			os << "Time: " << time << "\n" << "Type: Application Error\n";
+
+			for (const auto& node : pt.get_child("Event.EventData"))
+			{
+				if (node.first == "Data" && contains(REQUIRED_APP_ERROR_DATAS, node.second.get<std::string>("<xmlattr>.Name")))
+				{
+					os << node.second.get<std::string>("<xmlattr>.Name") << ": " << node.second.data() << "\n";
+				}
+			}
+
+			os << "\n\n";
+			return os.str();
+		}
+
+		return "";
 	}
 	catch (const std::exception& e)
 	{

@@ -1,3 +1,5 @@
+#pragma once
+
 /* Parameters of MD5. */
 #define s11 7
 #define s12 12

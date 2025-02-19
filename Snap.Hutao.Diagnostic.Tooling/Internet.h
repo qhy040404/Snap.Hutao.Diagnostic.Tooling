@@ -1,3 +1,5 @@
+#pragma once
+
 #include "GlobalInclude.h"
 
 #include <boost/property_tree/json_parser.hpp>

@@ -1,3 +1,5 @@
+#pragma once
+
 #include "GlobalInclude.h"
 
 #include <atlstr.h>
@@ -13,7 +15,7 @@
 
 #pragma comment(lib, "wevtapi.lib")
 
-void DumpHutaoDotNetEvents();
+void DumpHutaoEvents();
 
 DWORD PrintQueryStatuses(EVT_HANDLE hResults);
 DWORD GetQueryStatusProperty(EVT_QUERY_PROPERTY_ID Id, EVT_HANDLE hResults, PEVT_VARIANT& pProperty);
